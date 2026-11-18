@@ -1,6 +1,6 @@
-
 import { useState } from 'react';
 import ProductTable from '../components/ProductTable';
+import '../Products.css';
 
 const products = [
   { id: 1, sku: 'ACC-001', name: 'Classic Leather Handbag', category: 'Accessories', price: 4500, stock: 18, image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=200' },
@@ -111,7 +111,5 @@ function ProductsPage() {
 }
 
 export default ProductsPage;
-
-
 
 
