@@ -61,4 +61,25 @@ Git – Version control.
 
 GitHub – Collaborative development and code management.
 
-### Project Structure
+### Project StructureEcommerce-Admin-Dashboard/
+│
+├── Ecommerce-dashboard/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   │   └── ProductTable.jsx
+│   │   ├── pages/
+│   │   │   └── ProductsPage.jsx
+│   │   ├── Products.css
+│   │   ├── App.jsx
+│   │   ├── App.css
+│   │   ├── index.css
+│   │   └── main.jsx
+│   │
+│   ├── package.json
+│   └── index.html
+│
+├── README.md
+└── .gitignore
+
+
