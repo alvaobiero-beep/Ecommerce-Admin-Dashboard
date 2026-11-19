@@ -89,7 +89,7 @@ Make sure you have the following installed:
 Node.js
 npm
 Git
-Visual Studio CodeS
+Visual Studio Code
 
 
 
