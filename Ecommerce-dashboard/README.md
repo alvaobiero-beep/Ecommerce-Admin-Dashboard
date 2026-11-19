@@ -40,4 +40,12 @@ Display stock availability indicators.
 
 Responsive product catalogue layout.
 
+### Dashboard
+
+Organized administrative interface.
+
+Navigation between dashboard sections.
+
+Clean and user-friendly layout.
+
 
