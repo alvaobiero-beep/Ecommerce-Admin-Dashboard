@@ -1,6 +1,8 @@
 import React from 'react'
 import './landing.css'
 import logo from '../assets/hero.png'
+import icon from '../assets/group3img.jpeg'
+
 
 const items = [
   { label: 'Management', variant: 'dark' },
@@ -13,7 +15,7 @@ const items = [
 const Sidebar = () => {
   return (
     <aside className="sidebar">
-      <img src={logo} alt="logo" className="sidebar-logo" />
+      <img src={icon} alt="logo" className="sidebar-logo" />
       <h4 className="sidebar-title">
         GROUP 3 PROJECT <br /> DASHBOARD
       </h4>
