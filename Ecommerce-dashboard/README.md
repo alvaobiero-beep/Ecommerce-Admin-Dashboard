@@ -32,4 +32,12 @@ Search for products by name, category or SKU.
 
 Filter products by category.
 
-View total products and product categories.
+View total products and product categories.Monitor total inventory stock.
+
+Calculate the total inventory value.
+
+Display stock availability indicators.
+
+Responsive product catalogue layout.
+
+
