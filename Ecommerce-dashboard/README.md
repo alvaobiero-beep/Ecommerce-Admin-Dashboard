@@ -55,3 +55,8 @@ React.js – Building the user interface.
 JavaScript – Application functionality and interactivity.
 
 CSS3 – Styling and responsive design.
+Vite – Development server and build tool.
+
+Git – Version control.
+
+GitHub – Collaborative development and code management.
