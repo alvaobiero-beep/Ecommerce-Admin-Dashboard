@@ -114,4 +114,74 @@ npm run dev
 Open the local URL provided by Vite in your browser.
 
 
+## My Contribution
+
+I was responsible for developing the Products page of the E-Commerce Admin Dashboard using React.js.
+
+### Products Page Development
+
+- Created the ProductsPage component to display the products catalogue.
+- Developed a separate ProductTable component to organize and display product information.
+- Added sample product data for the catalogue.
+- Displayed product names, images, SKUs, categories, prices and stock quantities.
+- Organized products into a structured and user-friendly table.
+
+### Product Functionality
+
+- Implemented search functionality to find products by name, category or SKU.
+- Added category filtering to make product navigation easier.
+- Created summary cards showing the total number of products and categories.
+- Implemented total inventory stock calculations.
+- Calculated the total value of available inventory.
+- Added stock availability indicators to show product stock levels.
+
+### Styling and Responsiveness
+
+- Created a separate Products.css file for Products page styling.
+- Styled the product catalogue, search bar, summary cards and action buttons.
+- Added responsive CSS layouts for different screen sizes.
+- Improved the overall appearance and usability of the Products page.
+
+## Collaboration and Version Control
+
+The project was developed collaboratively using Git and GitHub.
+
+### Git Workflow
+
+- Forked the original group repository.
+- Cloned the forked repository to the local machine.
+- Created a dedicated feature branch called `feature/products-page`.
+- Used Git to track and commit changes.
+- Pushed changes to the remote GitHub repository.
+- Created a pull request targeting the group's `Development` branch for review and integration.
+
+## Challenges and Solutions
+
+### Challenges
+
+- Organizing the Products page into reusable React components.
+- Implementing search and category filtering.
+- Separating page-specific styling from global CSS.
+- Managing changes using Git and GitHub.
+
+### Solutions
+
+- Used React components to organize the application.
+- Used React state to manage search and filtering.
+- Created a separate CSS file for Products page styling.
+- Used feature branches and pull requests to manage collaborative development.
+
+## Future Improvements
+
+- Connect the products catalogue to a backend API.
+- Implement complete product creation, editing and deletion.
+- Add real-time inventory updates.
+- Implement user authentication and authorization.
+- Add dashboard analytics and reporting features.
+
+## Acknowledgements
+
+This project was developed as part of a collaborative Software Engineering programme at Moringa School.
+
+Special thanks to my teammates, instructors and everyone who contributed to the development of this project.
 
