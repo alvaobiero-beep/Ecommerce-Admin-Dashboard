@@ -83,5 +83,13 @@ GitHub – Collaborative development and code management.
 └── .gitignore
 
 ## Getting started
+### Prerequisites
+
+Make sure you have the following installed:
+Node.js
+npm
+Git
+Visual Studio CodeS
+
 
 
