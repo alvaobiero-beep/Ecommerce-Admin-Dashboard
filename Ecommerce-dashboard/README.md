@@ -82,4 +82,6 @@ GitHub – Collaborative development and code management.
 ├── README.md
 └── .gitignore
 
+## Getting started
+
 
