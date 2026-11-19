@@ -60,3 +60,5 @@ Vite – Development server and build tool.
 Git – Version control.
 
 GitHub – Collaborative development and code management.
+
+### Project Structure
