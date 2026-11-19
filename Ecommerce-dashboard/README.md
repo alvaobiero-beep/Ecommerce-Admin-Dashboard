@@ -91,5 +91,29 @@ npm
 Git
 Visual Studio Code
 
+## Prerequisites
+
+## 
+
+Installation
+
+Clone the repository:
+
+git clone <repository-url>
+
+Navigate into the React application folder:
+
+cd Ecommerce-Admin-Dashboard/Ecommerce-dashboard
+
+Install the dependencies:
+
+npm install
+
+Start the development server:
+
+npm run dev
+
+Open the local URL provided by Vite in your browser.
+
 
 
