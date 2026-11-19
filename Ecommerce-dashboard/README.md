@@ -91,8 +91,6 @@ npm
 Git
 Visual Studio Code
 
-## Prerequisites
-
 ## Getting started
 
 Installation
