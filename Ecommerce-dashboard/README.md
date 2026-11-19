@@ -24,3 +24,12 @@ The E-commerce Admin Dashboard is a React-based web application designed to help
 ## Features
 
 ### Products Management
+Display a catalogue of available products.
+
+View product names, images, SKUs, categories, prices and stock quantities.
+
+Search for products by name, category or SKU.
+
+Filter products by category.
+
+View total products and product categories.
