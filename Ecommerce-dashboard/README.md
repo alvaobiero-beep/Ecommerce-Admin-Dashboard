@@ -126,7 +126,7 @@ I was responsible for developing the Products page of the E-Commerce Admin Dashb
 - Displayed product names, images, SKUs, categories, prices and stock quantities.
 - Organized products into a structured and user-friendly table.
 
-### Product Functionality
+## Product Functionality
 
 - Implemented search functionality to find products by name, category or SKU.
 - Added category filtering to make product navigation easier.
