@@ -19,4 +19,4 @@ If you are developing a production application, we recommend using TypeScript wi
 # E-commerce Admin Dashboard
 
 ## Project Overview
-The E-commerce Admin Dashboard is a React-based web application designed to help administraters manage an online store efficiently.
+The E-commerce Admin Dashboard is a React-based web application designed to help administraters manage an online store efficiently.It provides an interface for managing products, monitoring inventory and organizing essential store information.
