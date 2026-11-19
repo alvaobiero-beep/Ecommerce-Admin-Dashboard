@@ -48,4 +48,10 @@ Navigation between dashboard sections.
 
 Clean and user-friendly layout.
 
+### Technologies Used
 
+React.js – Building the user interface.
+
+JavaScript – Application functionality and interactivity.
+
+CSS3 – Styling and responsive design.
