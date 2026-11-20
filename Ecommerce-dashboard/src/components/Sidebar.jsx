@@ -1,7 +1,12 @@
 import React from 'react'
 import './landing.css'
 import logo from '../assets/hero.png'
+ dashboard-page
 import { NavLink } from 'react-router-dom'
+
+import icon from '../assets/group3img.jpeg'
+
+ Development
 
 const items = [
   {label : 'home ', path : '/' , variant : 'green' } ,
@@ -13,11 +18,15 @@ const items = [
 function Sidebar() {
   return (
     <aside className="sidebar">
+ dashboard-page
       <header className='sidebar-header'>
       <h2 >E-Commerce Admin</h2>
       </header>
 
        <img src={logo} alt="logo" className="sidebar-logo" />
+
+      <img src={icon} alt="logo" className="sidebar-logo" />
+ Development
       <h4 className="sidebar-title">
         GROUP 3 PROJECT <br /> DASHBOARD
       </h4>
