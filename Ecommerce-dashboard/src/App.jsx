@@ -1,39 +1,30 @@
- import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css';
-import Sidebar from './components/Sidebar';
-import ProductsPage from './pages/ProductsPage';
-import DashboardPage from './pages/DashboardPage';
-function Dashboard() {
-  return <h1>Welcome to the Admin Dashboard</h1>;
-}
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
+import ProductsPage from './pages/ProductsPage';
+import ProductDetailsPage from './pages/ProductDetailsPage';
+
+import './App.css';
 
 function App() {
   return (
     <BrowserRouter>
-      <div className='app-layout'>
-        <Sidebar />
+      <Routes>
+        <Route path="/" element={<Navigate to="/products" replace />} />
 
-        <main className='main-content' >
+        <Route path="/products" element={<ProductsPage />} />
 
-          <Routes>
-            <Route path = '/' element = {<landingPage/>} /> 
-            <Route path= '/dashboard' element = {< DashboardPage/>} />
-            <Route path= '/products' element= {<ProductsPage/>} />
-          </Routes>
-        </main>
-
-      </div>
+        <Route
+          path="/products/:id"
+          element={<ProductDetailsPage />}
+        />
+      </Routes>
     </BrowserRouter>
-
-  
-    
-    
-   
   );
 }
 
 export default App;
+
+
 
 
 

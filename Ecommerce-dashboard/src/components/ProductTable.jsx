@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 
 function ProductTable({ products }) {
   return (
@@ -23,16 +24,24 @@ function ProductTable({ products }) {
               <td>{product.sku}</td>
 
               <td className="product-info">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="product-image"
-                />
-                <span>{product.name}</span>
+                <Link
+                  to={`/products/${product.id}`}
+                  className="product-link"
+                >
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="product-image"
+                  />
+
+                  <span>{product.name}</span>
+                </Link>
               </td>
 
               <td>{product.category}</td>
-              <td>KSh {product.price.toLocaleString()}</td>
+              <td>
+                KSh {Number(product.price).toLocaleString()}
+              </td>
               <td>{product.stock}</td>
             </tr>
           ))}

@@ -1,47 +1,42 @@
 import { useState } from 'react';
 import ProductTable from '../components/ProductTable';
+import useProducts from '../hooks/useProducts';
 import '../Products.css';
 
-const products = [
-  { id: 1, sku: 'ACC-001', name: 'Classic Leather Handbag', category: 'Accessories', price: 4500, stock: 18, image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=200' },
-  { id: 2, sku: 'FOO-001', name: 'Urban Sneakers', category: 'Footwear', price: 6200, stock: 32, image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200' },
-  { id: 3, sku: 'BEA-001', name: 'Signature Perfume', category: 'Beauty', price: 2800, stock: 7, image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=200' },
-  { id: 4, sku: 'ACC-002', name: 'Minimalist Watch', category: 'Accessories', price: 5500, stock: 0, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200' },
-  { id: 5, sku: 'CLO-001', name: 'Everyday Hoodie', category: 'Clothing', price: 3200, stock: 14, image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=200' },
-  { id: 6, sku: 'ACC-003', name: 'Travel Backpack', category: 'Accessories', price: 3900, stock: 21, image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200' },
-  { id: 7, sku: 'ELE-001', name: 'Wireless Headphones', category: 'Electronics', price: 4800, stock: 12, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200' },
-  { id: 8, sku: 'BEA-002', name: 'Hydrating Face Cream', category: 'Beauty', price: 1800, stock: 25, image: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=200' },
-  { id: 9, sku: 'ACC-004', name: 'Classic Leather Wallet', category: 'Accessories', price: 1500, stock: 40, image: 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=200' },
-  { id: 10, sku: 'HOM-001', name: 'Modern Table Lamp', category: 'Home', price: 3400, stock: 9, image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=200' },
-  { id: 11, sku: 'FOO-002', name: 'Casual Flat Sandals', category: 'Footwear', price: 2200, stock: 16, image: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=200' },
-  { id: 12, sku: 'HOM-002', name: 'Reusable Water Bottle', category: 'Home', price: 1200, stock: 28, image: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=200' }
-];
-
 function ProductsPage() {
+  const { products, loading, error } = useProducts();
+
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
 
   const totalProducts = products.length;
 
-  const totalCategories = [...new Set(
-    products.map((product) => product.category)
-  )].length;
+  const totalCategories = [
+    ...new Set(products.map((product) => product.category))
+  ].length;
 
   const totalStock = products.reduce(
-    (total, product) => total + product.stock,
+    (total, product) => total + Number(product.stock),
     0
   );
 
   const inventoryValue = products.reduce(
-    (total, product) => total + product.price * product.stock,
+    (total, product) =>
+      total + Number(product.price) * Number(product.stock),
     0
   );
 
+  const categories = [
+    ...new Set(products.map((product) => product.category))
+  ];
+
   const filteredProducts = products.filter((product) => {
+    const search = searchTerm.toLowerCase();
+
     const matchesSearch =
-      product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      product.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      product.sku.toLowerCase().includes(searchTerm.toLowerCase());
+      product.name.toLowerCase().includes(search) ||
+      product.category.toLowerCase().includes(search) ||
+      product.sku.toLowerCase().includes(search);
 
     const matchesCategory =
       selectedCategory === 'All' ||
@@ -50,8 +45,17 @@ function ProductsPage() {
     return matchesSearch && matchesCategory;
   });
 
+  if (loading) {
+    return <p>Loading products...</p>;
+  }
+
+  if (error) {
+    return <p>Error loading products: {error}</p>;
+  }
+
   return (
     <div className="products-page">
+
       <header className="products-header">
         <div>
           <h1>Products Overview</h1>
@@ -61,28 +65,34 @@ function ProductsPage() {
         <button type="button">Add Product +</button>
       </header>
 
-      <div className="summary-cards">
-        <div className="summary-card">
-          <h3>Total Products</h3>
-          <p>{totalProducts}</p>
-        </div>
+      {/* Analytics section */}
+      <section className="analytics-section">
+        <div className="summary-cards">
 
-        <div className="summary-card">
-          <h3>Categories</h3>
-          <p>{totalCategories}</p>
-        </div>
+          <div className="summary-card summary-card--total-products">
+            <h3>Total Products</h3>
+            <p>{totalProducts}</p>
+          </div>
 
-        <div className="summary-card">
-          <h3>Stock Update</h3>
-          <p>{totalStock} units</p>
-        </div>
+          <div className="summary-card summary-card--categories">
+            <h3>Categories</h3>
+            <p>{totalCategories}</p>
+          </div>
 
-        <div className="summary-card">
-          <h3>Inventory Value</h3>
-          <p>KSh {inventoryValue.toLocaleString()}</p>
-        </div>
-      </div>
+          <div className="summary-card summary-card--stock">
+            <h3>Stock Update</h3>
+            <p>{totalStock} units</p>
+          </div>
 
+          <div className="summary-card summary-card--inventory-value">
+            <h3>Inventory Value</h3>
+            <p>KSh {inventoryValue.toLocaleString()}</p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Search and filter */}
       <div className="search-container">
         <input
           type="text"
@@ -96,20 +106,20 @@ function ProductsPage() {
           onChange={(event) => setSelectedCategory(event.target.value)}
         >
           <option value="All">All Categories</option>
-          <option value="Accessories">Accessories</option>
-          <option value="Footwear">Footwear</option>
-          <option value="Beauty">Beauty</option>
-          <option value="Clothing">Clothing</option>
-          <option value="Electronics">Electronics</option>
-          <option value="Home">Home</option>
+
+          {categories.map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
         </select>
       </div>
 
+      {/* Products table */}
       <ProductTable products={filteredProducts} />
+
     </div>
   );
 }
 
 export default ProductsPage;
-
-
