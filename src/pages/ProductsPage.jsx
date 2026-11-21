@@ -5,6 +5,8 @@ import '../Products.css';
 import { Link } from 'react-router-dom';
 import Overview from '../components/Overview';
 import Analytics from '../components/Analytics';
+import icon from '../assets/group3img.jpeg'
+
 function ProductsPage() {
   const { products, loading, error } = useProducts();
 
@@ -57,16 +59,28 @@ function ProductsPage() {
 
   return (
     <div className="products-page">
+      
+
+
+      
 
       <header className="products-header">
-        <div>
+
+
+      
+            <h3 className="sidebar-title"> 
+              GROUP 3 PROJECT <br /> DASHBOARD
+            </h3>
+        
           <h1>Products Overview</h1>
-          <p>Manage your store products and inventory.</p>
-          <Link to='/overview' > Analytics-1</Link>
-          <Link to='/analytics'>Analytics-2 </Link>
-        </div>
+          <h2> Manage store</h2>
+          <Link to='/overview' > Category-analysis</Link>
+          <Link to='/analytics'>Stock-analysis</Link>
+        
 
         <button type="button">Add Product +</button>
+        <input type="text" placeholder='Search for product ...' />
+
       </header>
 
       {/* Analytics section */}
@@ -76,6 +90,12 @@ function ProductsPage() {
           <div className="summary-card summary-card--total-products" id='analytics-total'>
             <h3>Total Products</h3>
             <p>{totalProducts}</p>
+
+
+
+            <h3>Amout of Revenue</h3>
+            <p>KSh {inventoryValue.toLocaleString()}</p>
+          
           </div>
 
           <div className="summary-card summary-card--categories" id='analytics'>
@@ -93,12 +113,14 @@ function ProductsPage() {
                <Overview products={products} />
             
             <p>{totalStock} units</p>
+
+
+
+
+
           </div>
 
-          <div className="summary-card summary-card--inventory-value" id='analytics-total'>
-            <h3>Inventory Value</h3>
-            <p>KSh {inventoryValue.toLocaleString()}</p>
-          </div>
+          
 
         </div>
       </section>

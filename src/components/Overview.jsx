@@ -4,7 +4,6 @@ import {
 import { Bar, Doughnut, Line, Pie , Radar} from 'react-chartjs-2'
 import { Link } from 'react-router-dom'
 
-
 function Overview() {
   const [products, setProducts] = useState([])
 
@@ -18,40 +17,73 @@ function Overview() {
       .catch((err) => console.error(err))
   }, [])
 
+  // combine stock per category so each category appears only once
+  const stockByCategory = products.reduce((acc, product) => {
+    acc[product.category] = (acc[product.category] || 0) + product.stock
+    return acc
+  }, {})
+
   return (
     <>
-      <div>
-        < Radar
+      <div className="chart-box">
+        <Bar
           data={{
-            labels: products.map((product) => product.category),
+            labels: Object.keys(stockByCategory),
             datasets: [
               {
-              label: 'Stock recent updates',
-                data: products.map((product) => (product.stock)),
+                label: 'Stock recent updates',
+                data: Object.values(stockByCategory),
 
-                backgroundColor:[
-                  " #10eb609d",
-                  " #5f1465"
-                  
+                // one color per category
+                backgroundColor: [
+                  '#10eb609d',
+                  '#5f1465',
+                  '#b4e818aa',
+                  '#3b9bffaa',
+                  '#ff3b9baa',
+                  '#ffb63baa',
                 ],
-          // line
-          borderColor: "#b4e818",
-          borderWidth: 3,
+                hoverBackgroundColor: '#b4e818',
 
-          // dots
-          pointBackgroundColor: "#ffffff",
-          pointBorderColor: "#0e08b7",
-          pointBorderWidth: 2,
-          pointRadius: 6,
-          pointHoverRadius: 9,
-        
-              },  
+                // bar outline
+            
+                borderWidth: 2,
+                borderSkipped: false,
+                maxBarThickness: 48,
+              },
             ],
+          }}
+          options={{
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'bottom',
+                labels: { color: '#c9d1cc', usePointStyle: true },
+              },
+              tooltip: {
+                backgroundColor: '#0f1211',
+                borderColor: '#343a36',
+                borderWidth: 1,
+                padding: 10,
+                cornerRadius: 8,
+              },
+            },
+            scales: {
+              x: {
+                grid: { display: false },
+                ticks: { color: '#c9d1cc' },
+              },
+              y: {
+                beginAtZero: true,
+                border: { display: false },
+                grid: { color: 'rgba(255,255,255,0.06)' },
+                ticks: { color: '#c9d1cc' },
+              },
+            },
           }}
         />
       </div>
-      <Link to={'/'}> Home</Link>
-
+      
     </>
   )
 }

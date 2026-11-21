@@ -14,9 +14,16 @@ const items = [
 function Navbar() {
   return (
     <aside className="sidebar">
- dashboard-page
+      dashboard-page
       <header className='sidebar-header'>
-      <h2 >E-Commerce Admin</h2>
+      <h2 >E-Commerce Admin</h2> 
+
+
+      <img src={icon} alt="logo" className="sidebar-logo" />
+
+      <h4 className="sidebar-title">
+        GROUP 3 PROJECT <br /> DASHBOARD
+      </h4>
       </header>
 
       <img src={icon} alt="logo" className="sidebar-logo" />
