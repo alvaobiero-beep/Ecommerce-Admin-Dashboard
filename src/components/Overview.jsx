@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import {
   Chart as ChartJS } from 'chart.js/auto'
-import { Bar, Line, Pie } from 'react-chartjs-2'
+import { Bar, Doughnut, Line, Pie , Radar} from 'react-chartjs-2'
 import { Link } from 'react-router-dom'
 
 
@@ -21,18 +21,31 @@ function Overview() {
   return (
     <>
       <div>
-        <Bar
+        < Radar
           data={{
             labels: products.map((product) => product.category),
             datasets: [
               {
-                label: 'products category',
+              label: 'Stock recent updates',
                 data: products.map((product) => (product.stock)),
-              },
-              {
-                label: 'products category',
-                data: products.map((product) => (product.stock)),
-              },
+
+                backgroundColor:[
+                  " #10eb609d",
+                  " #5f1465"
+                  
+                ],
+          // line
+          borderColor: "#b4e818",
+          borderWidth: 3,
+
+          // dots
+          pointBackgroundColor: "#ffffff",
+          pointBorderColor: "#0e08b7",
+          pointBorderWidth: 2,
+          pointRadius: 6,
+          pointHoverRadius: 9,
+        
+              },  
             ],
           }}
         />

@@ -49,9 +49,11 @@
 }
 #analytics{
   width:650px;
+  max-height: auto;
   margin-right: 5px;
   margin-left: 20px;
   display: inline;
+  box-sizing: border-box;
  
 }
 #analytics-total{

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import {
   Chart as ChartJS } from 'chart.js/auto'
-import { Bar, Line, Pie } from 'react-chartjs-2'
+import { Bar, Line, Pie ,Doughnut, Radar } from 'react-chartjs-2'
 import { Link } from 'react-router-dom'
 
 
@@ -23,22 +23,26 @@ function Analytics() {
       <div>
         <Line
           data={{
-            labels: products.map((product) => product.category),
+            labels: products.map((product) => product.name),
             datasets: [
               {
-                label: 'products category',
-                data: products.map((product) => (product.stock)),
+                label: 'Products prices',
+                data: products.map((product) => (product.price)),
+                backgroundColor:[
+
+                  "#30cf2a",
+                  "#f31baf",
+
+                ]
               },
-              {
-                label: 'products category',
-                data: products.map((product) => (product.stock)),
-              },
+
+              
             ],
           }}
         />
       </div>
       <Link to={'/'}> Home</Link> 
-      
+
 
     </>
   )
