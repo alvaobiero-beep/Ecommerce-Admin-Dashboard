@@ -1,0 +1,47 @@
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+
+import ProductsPage from './pages/ProductsPage';
+import ProductDetailsPage from './pages/ProductDetailsPage';
+import './App.css';
+import Overview from './components/Overview';
+import Analytics from './components/Analytics';
+
+function App() {
+  return (
+
+
+  <>
+
+
+  <div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to="/products" replace />} />
+        <Route path="/products" element={<ProductsPage />} />
+        <Route path="/overview" element={<Overview />} />
+        <Route path="/analytics" element={<Analytics />} />
+
+
+        <Route
+          path="/products/:id"
+          element={<ProductDetailsPage />}
+        />
+      </Routes>
+    </BrowserRouter>
+    
+
+    </div>
+
+
+
+
+    </>
+  );
+}
+
+export default App;
+
+
+
+
+
