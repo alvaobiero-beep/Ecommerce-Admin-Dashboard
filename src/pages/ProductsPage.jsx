@@ -66,22 +66,25 @@ function ProductsPage() {
 
       <header className="products-header">
 
+          <div id='logo'>
+          <img src={icon} alt="Group 3 logo" className="header-logo" />
+          <h2>GROUP-3</h2>
 
-          <img src="icon" alt="#" />
-            <h3 className="sidebar-title"> 
-              GROUP 3 PROJECT <br /> DASHBOARD
+          </div>
+
+           <h1>ADMIN DASHBOARD</h1>
+            <h3 className="sidebar-title" > 
+            Products  Overview
             </h3>
         
-          <h1>Products Overview</h1>
+          
           <h2> <Link  to='/store'> Store</Link></h2>
-          <Link to='/overview' > Category-analysis</Link>
-          <Link to='/analytics'>Stock-analysis</Link>
+          <Link to='/overview' > Stock-analysis</Link>
+          <Link to='/analytics'>Prices- analysis</Link>
         
 
         <button type="button"><Link to='/create'>Add Product +</Link></button>
-        <input type="text" placeholder='Search for product ...'  value={searchTerm}
-        onChange={(event) => setSearchTerm(event.target.value)}
-         />
+        
 
       </header>
 

@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'
 
 function Store() {
 
+
+    const[searchProduct, setSearchProduct]= useState("")
+
 const[products ,setProducts ] = useState([])
 
     useEffect(()=>{
@@ -19,6 +22,9 @@ const[products ,setProducts ] = useState([])
 
 
     },[])
+    const filtereddata =products.filter(
+        (item)=>item.name.toLowerCase().includes(searchProduct.toLowerCase().trim())
+    )
 
 
 
@@ -37,9 +43,11 @@ const[products ,setProducts ] = useState([])
     .catch((err) => console.error(err))
 }
 
+console.log(searchProduct)
   return (
     
 <>
+
 
 
 
@@ -49,7 +57,8 @@ const[products ,setProducts ] = useState([])
 
     <div>
         
-        <input type="text"  placeholder='Search for a product in the store'/><br />
+        <input type="text"  placeholder='Search for a product in the store'   
+         value={searchProduct}   onChange={(e)=> setSearchProduct(e.target.value) }/><br />
         <button><Link to='/'>Exit</Link></button>
     </div>
       <h2>Store display</h2>
@@ -70,7 +79,7 @@ const[products ,setProducts ] = useState([])
         </thead>
 
         <tbody>
-          {products.map((product) => (
+          {filtereddata.map((product) => (
             <tr key={product.id}>
               <td>{product.id}</td>
               <td>{product.sku}</td>
@@ -112,8 +121,8 @@ const[products ,setProducts ] = useState([])
         </tbody>
       </table>
 
-      {products.length === 0 && (
-        <p className="no-products">No products found.</p>
+      {products.length === 0 && (   // ← change this
+  <p className="no-products">No products found.</p>
       )}
 
 

@@ -25,21 +25,51 @@
   gap: 24px;
   padding: 16px 32px;
   margin-bottom: 35px;
+  border-bottom: solid 2px  #b5ff39;   ;
 }
 
+
+.header-logo {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+#logo{
+  display: flex;
+  align-items: center;
+flex-direction: column;
+}
+#logo h2:hover{
+  color: #38e8c6;
+
+}
+.header-logo:hover{
+  color: #38e8c6;
+  transition:0.2s ease-in-out ;
+}
 .products-header h1 {
   margin: 0 0 8px;
   font-size: 30px;
   color: #b5ff39;
 }
+.products-header h1:hover{
+  color: #38e8c6;
+}
 
-.products-header h2 {
+.products-header h3{
   margin: 0;
+  font-size: 26px;
+  
+}
+.products-header h3:hover{
+  color: #38e8c6;
 }
 
 .products-header p {
   margin: 0;
   color: #a0a0a0;
+
 }
 
 /* nav links */
