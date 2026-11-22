@@ -1,0 +1,97 @@
+#products-store{
+  
+  background-color: rgb(65, 69, 67);
+  height: 100%;
+
+
+
+  
+}
+
+
+
+.product-form {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 600px;
+  padding: 24px;
+  background: #1c201e;
+  border: 1px solid #343a36;
+  border-radius: 12px;
+}
+
+.product-form h3 {
+  margin: 0 0 4px;
+  color: #b4e818;
+  font-size: 20px;
+}
+
+.product-form input,
+.product-form select {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20px 25px;
+  background: #121212;
+  color: #fff;
+  border: 1px solid #343a36;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.product-form input::placeholder { color: #7d867f; }
+
+.product-form input:focus,
+.product-form select:focus {
+  outline: none;
+  border-color: #b4e818;
+  box-shadow: 0 0 0 3px rgba(180, 232, 24, 0.15);
+}
+
+/* price and stock side by side */
+.form-row {
+  display: flex;
+  gap: 12px;
+}
+.form-row input { min-width: 0; flex: 1; }
+
+/* custom dropdown */
+.product-form select {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 36px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23b4e818' stroke-width='2'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+.product-form select:invalid { color: #7d867f; }  /* placeholder look */
+.product-form select option { background: #1c201e; color: #fff; }
+
+/* hide number spinners */
+.product-form input[type="number"]::-webkit-inner-spin-button,
+.product-form input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.product-form input[type="number"] { -moz-appearance: textfield; }
+
+.product-form button {
+  padding: 12px;
+  background: #b4e818;
+  color: #000;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.15s, opacity 0.15s;
+}
+.product-form button:hover { transform: translateY(-1px); opacity: 0.9; }
+.create-product{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}

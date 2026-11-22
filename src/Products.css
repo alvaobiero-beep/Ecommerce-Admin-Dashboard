@@ -122,15 +122,15 @@
 }
 
 .product-table-container {
-  width: 65%;
+  width: 100%;
   background: #1c201e;
   padding: 25px;
   border: 1px solid #343a36;
   border-radius: 12px;
   overflow-x: auto;
-  max-height: 500px;
-  
+
 }
+
 
 .product-table-container h2 {
   margin: 0 0 20px;

@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import Store from './Store';
 
 function ProductTable({ products }) {
   return (
@@ -54,7 +53,7 @@ function ProductTable({ products }) {
       )}
 
 
-      <Store products={products} />
+      
     </div>
 
 

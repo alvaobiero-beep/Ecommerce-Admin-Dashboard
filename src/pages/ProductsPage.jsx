@@ -73,7 +73,7 @@ function ProductsPage() {
             </h3>
         
           <h1>Products Overview</h1>
-          <h2> Manage store</h2>
+          <h2> <Link  to='/store'> Store</Link></h2>
           <Link to='/overview' > Category-analysis</Link>
           <Link to='/analytics'>Stock-analysis</Link>
         

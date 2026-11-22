@@ -1,10 +1,115 @@
-import React from 'react'
+import React,{ useEffect,useState} from 'react'
+import { Link } from 'react-router-dom'
 
-function Store(products) {
+
+function Store() {
+
+const[products ,setProducts ] = useState([])
+
+    useEffect(()=>{
+         fetch('http://localhost:3001/products')
+      .then((res) => {
+        if (!res.ok) throw new Error('Request failed: ' + res.status)
+        return res.json()
+      })
+      .then((data) => setProducts(data))
+      .catch((err) => console.error(err))
+
+
+
+
+    },[])
+
   return (
+    
+<>
+
+
+
+
+ <div className="product-table-container"   id='products-store'>
+
+
     <div>
+        <input type="text"  placeholder='Search for a product in the store'/><br />
+        <button><Link to='/'>Back to products</Link></button>
+    </div>
+      <h2>Store display</h2>
+         <div className='add'><Link to= '/create' > Add +</Link> </div>
+
+      
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>SKU</th>
+            <th>Product</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Stock</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {products.map((product) => (
+            <tr key={product.id}>
+              <td>{product.id}</td>
+              <td>{product.sku}</td>
+
+              <td className="product-info">
+                <Link
+                  to={`/products/${product.id}`}
+                  className="product-link"
+                >
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="product-image"
+                  />
+
+                  <span>{product.name}</span>
+                </Link>
+              </td>
+
+              <td>{product.category}</td>
+              <td>
+                KSh {Number(product.price).toLocaleString()}
+              </td>
+              <td>{product.stock}</td>
+              <td>
+               < button className='btn'>Read</button>
+                <button className='btn'>Edit</button>
+                <button  className='btn'>Delete</button>
+                
+              </td>
+
+
+
+
+
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      {products.length === 0 && (
+        <p className="no-products">No products found.</p>
+      )}
+
+
       
     </div>
+
+
+
+
+
+
+</>
+
+
+
   )
 }
 

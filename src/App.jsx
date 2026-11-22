@@ -7,6 +7,7 @@ import Overview from './components/Overview';
 import Analytics from './components/Analytics';
 import Navbar from './components/Navbar';
 import Store from './components/Store';
+import Createproduct from './components/Createproduct';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/overview" element={<Overview />} />
         <Route path="/analytics" element={<Analytics />} />
         <Route path="/store" element={<Store/>}/>
+        <Route path='/create' element={<Createproduct/>}/>
 
 
 
