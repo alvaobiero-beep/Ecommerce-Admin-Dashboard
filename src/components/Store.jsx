@@ -20,6 +20,23 @@ const[products ,setProducts ] = useState([])
 
     },[])
 
+
+
+    const handleDelete = (id) => {
+  // ask before deleting
+  if (!window.confirm('Delete this product?')) return
+
+  fetch('http://localhost:3001/products/' + id, {
+    method: 'DELETE',
+  })
+    .then((res) => {
+      if (!res.ok) throw new Error('Request failed: ' + res.status)
+      // remove it from the table without reloading
+      setProducts(products.filter((product) => product.id !== id))
+    })
+    .catch((err) => console.error(err))
+}
+
   return (
     
 <>
@@ -31,8 +48,9 @@ const[products ,setProducts ] = useState([])
 
 
     <div>
+        
         <input type="text"  placeholder='Search for a product in the store'/><br />
-        <button><Link to='/'>Back to products</Link></button>
+        <button><Link to='/'>Exit</Link></button>
     </div>
       <h2>Store display</h2>
          <div className='add'><Link to= '/create' > Add +</Link> </div>
@@ -77,12 +95,13 @@ const[products ,setProducts ] = useState([])
                 KSh {Number(product.price).toLocaleString()}
               </td>
               <td>{product.stock}</td>
+              
               <td>
-               < button className='btn'>Read</button>
-                <button className='btn'>Edit</button>
-                <button  className='btn'>Delete</button>
-                
-              </td>
+                <Link to={`/edit/${product.id}`} className="edit-link">Edit</Link>
+                <button className="delete-btn" onClick={() => handleDelete(product.id)}>
+                    Delete
+                </button>
+                </td>
 
 
 

@@ -1,55 +1,106 @@
-import React from 'react'
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 function Createproduct() {
+  // 1. One state for each input
+  const [sku, setSku] = useState('')
+  const [name, setName] = useState('')
+  const [image, setImage] = useState('')
+  const [category, setCategory] = useState('')
+  const [price, setPrice] = useState('')
+  const [stock, setStock] = useState('')
 
+  const navigate = useNavigate()
 
+  // 2. Runs when the form is submitted
+  const handleSubmit = (e) => {
+    e.preventDefault() // stops the page from reloading
 
+    // 3. Put the data together (keys match your table: sku, name, image...)
+    const newProduct = {
+      sku: sku,
+      name: name,
+      image: image,
+      category: category,
+      price: Number(price),  // convert text to number
+      stock: Number(stock),
+    }
+
+    // 4. Send it to the API
+    fetch('http://localhost:3001/products', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newProduct),
+    })
+      .then((res) => res.json())
+      .then(() => {
+        alert('Product added!')
+        navigate('/') // go back to the table page
+      })
+      .catch((err) => console.error(err))
+  }
 
   return (
-    <div >
+    <div className="create-product">
+      <h1>Add Products</h1>
 
-        <div className='create-product'>
-            <h1>Add Products</h1>
-            <form className="product-form" >
-                <h3>Add Product</h3>
-                
-                <input name="sku" placeholder="SKU (e.g. ACC-005)"   required />
-                <input name="name" placeholder="Product name"  required />
-                <input name="image" placeholder="Image URL"  />
-                <br />
+      <form className="product-form" onSubmit={handleSubmit}>
+        <input
+          placeholder="SKU (e.g. ACC-005)"
+          value={sku}
+          onChange={(e) => setSku(e.target.value)}
+          required
+        />
 
-                <select name="category"  >
-                    <option value="/"> Slect category of product</option>
-                    <option value=" Accessories"> Slect category</option>
-                    <option value="Footwear "> Slect category</option>
-                    <option value="Beauty "> Slect category</option>
-                    <option value="Clothing "> Slect category</option>
-                    <option value="Electronics "> Slect category</option>
-                    <option value="Home "> Slect category</option>
+        <input
+          placeholder="Product name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
 
-               </select>
+        <input
+          placeholder="Image URL"
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
+        />
 
-      <div className="form-row">
-        <input name="price" type="number" min="0" placeholder="Price (KSh)"  required />
-        <input name="stock" type="number" min="0" placeholder="Stock" required />
-      </div>
-    
-        
-    
-    </form>
+        <select
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          required
+        >
+          <option value="" disabled>Select category</option>
+          <option value="Accessories">Accessories</option>
+          <option value="Footwear">Footwear</option>
+          <option value="Beauty">Beauty</option>
+          <option value="Clothing">Clothing</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Home">Home</option>
+        </select>
 
-
-            
-
-
-
-
+        <div className="form-row">
+          <input
+            type="number"
+            min="0"
+            placeholder="Price (KSh)"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            required
+          />
+          <input
+            type="number"
+            min="0"
+            placeholder="Stock"
+            value={stock}
+            onChange={(e) => setStock(e.target.value)}
+            required
+          />
         </div>
 
-
-
-
-      
+        <button type="submit">Add Product +</button>
+        <Link to="/" className="back-link">Back to store</Link>
+      </form>
     </div>
   )
 }

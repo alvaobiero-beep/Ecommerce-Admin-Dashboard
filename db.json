@@ -107,6 +107,15 @@
       "price": 1200,
       "stock": 28,
       "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=200"
+    },
+    {
+      "sku": "ACC-005",
+      "name": "Sweat pant",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUvDK6ZAPyb7wxLf0cjiOYxLFVEPJ-z2yEa2eONygXmA&s=10",
+      "category": "Footwear",
+      "price": 300,
+      "stock": 12,
+      "id": 13
     }
   ]
 }

@@ -78,7 +78,7 @@ function ProductsPage() {
           <Link to='/analytics'>Stock-analysis</Link>
         
 
-        <button type="button">Add Product +</button>
+        <button type="button"><Link to='/create'>Add Product +</Link></button>
         <input type="text" placeholder='Search for product ...'  value={searchTerm}
         onChange={(event) => setSearchTerm(event.target.value)}
          />

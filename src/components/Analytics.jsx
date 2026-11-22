@@ -8,6 +8,11 @@ import { Link } from 'react-router-dom'
 function Analytics() {
   const [products, setProducts] = useState([])
 
+  function Analytics({ showBack = false }) {
+  
+  {showBack && <Link to="/" className="back-link">Home</Link>}
+}
+
   useEffect(() => {
     fetch('http://localhost:3001/products')
       .then((res) => {
@@ -95,7 +100,7 @@ function Analytics() {
           }}
         />
       </div>
-      <Link to={'/'} className="back-link"> Home</Link>
+    
     </>
   )
 }
