@@ -95,6 +95,25 @@
     flex-direction: column;
 
 }
+.back-link{
+    width: 80px;
+    height: 30px;
+    background-color:rgb(147, 246, 9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+
+
+}
+
+.back-link:hover{
+    transition: 200ms ease-in-out;
+    text-decoration: underline;
+}
 .edit-link { color: #b4e818; text-decoration: none; font-weight: 600; }
 .edit-link:hover { text-decoration: underline; }
 .delete-btn {

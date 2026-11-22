@@ -99,7 +99,7 @@ function Createproduct() {
         </div>
 
         <button type="submit">Add Product +</button>
-        <Link to="/" className="back-link">Back to store</Link>
+        <Link to="/" className="back-link"> Exit</Link>
       </form>
     </div>
   )
