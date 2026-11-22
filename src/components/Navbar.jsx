@@ -1,6 +1,6 @@
 import React from 'react'
 import './landing.css'
-import icon from '../assets/group3img.jpeg'
+
 
  
 

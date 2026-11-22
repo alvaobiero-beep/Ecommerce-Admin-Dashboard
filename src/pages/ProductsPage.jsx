@@ -67,7 +67,7 @@ function ProductsPage() {
       <header className="products-header">
 
 
-      
+          <img src="icon" alt="#" />
             <h3 className="sidebar-title"> 
               GROUP 3 PROJECT <br /> DASHBOARD
             </h3>
@@ -79,7 +79,9 @@ function ProductsPage() {
         
 
         <button type="button">Add Product +</button>
-        <input type="text" placeholder='Search for product ...' />
+        <input type="text" placeholder='Search for product ...'  value={searchTerm}
+        onChange={(event) => setSearchTerm(event.target.value)}
+         />
 
       </header>
 

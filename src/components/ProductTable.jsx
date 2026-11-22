@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Store from './Store';
 
 function ProductTable({ products }) {
   return (
@@ -51,7 +52,12 @@ function ProductTable({ products }) {
       {products.length === 0 && (
         <p className="no-products">No products found.</p>
       )}
+
+
+      <Store products={products} />
     </div>
+
+
   );
 }
 
