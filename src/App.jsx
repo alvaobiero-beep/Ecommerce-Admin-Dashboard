@@ -5,7 +5,6 @@ import ProductDetailsPage from './pages/ProductDetailsPage';
 import './App.css';
 import Overview from './components/Overview';
 import Analytics from './components/Analytics';
-import Navbar from './components/Navbar';
 import Store from './components/Store';
 import Createproduct from './components/Createproduct';
 import Editproduct from './components/Editproduct';

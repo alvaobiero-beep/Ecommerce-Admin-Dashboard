@@ -28,6 +28,7 @@ const[products ,setProducts ] = useState([])
 
 
 
+
     const handleDelete = (id) => {
   // ask before deleting
   if (!window.confirm('Delete this product?')) return
@@ -43,7 +44,7 @@ const[products ,setProducts ] = useState([])
     .catch((err) => console.error(err))
 }
 
-console.log(searchProduct)
+
   return (
     
 <>
