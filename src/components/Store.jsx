@@ -10,7 +10,7 @@ function Store() {
 const[products ,setProducts ] = useState([])
 
     useEffect(()=>{
-         fetch(' https://my-json-server-0oe4.onrender.com/products')
+         fetch(' https://my-json-server-0oe4.onrender.com/products/')
       .then((res) => {
         if (!res.ok) throw new Error('Request failed: ' + res.status)
         return res.json()
@@ -33,7 +33,7 @@ const[products ,setProducts ] = useState([])
   // ask before deleting
   if (!window.confirm('Delete this product?')) return
 
-  fetch(' https://my-json-server-0oe4.onrender.com/products' + id, {
+  fetch(' https://my-json-server-0oe4.onrender.com/products/' + id, {
     method: 'DELETE',
   })
     .then((res) => {

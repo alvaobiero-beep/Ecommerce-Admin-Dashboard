@@ -15,7 +15,7 @@ function Editproduct() {
 
   // 2. Load the existing product and fill the form
   useEffect(() => {
-    fetch('https://my-json-server-0oe4.onrender.com/products' + id)
+    fetch('https://my-json-server-0oe4.onrender.com/products/' + id)
       .then((res) => res.json())
       .then((product) => {
         setSku(product.sku)
@@ -41,7 +41,7 @@ function Editproduct() {
       stock: Number(stock),
     }
 
-    fetch('https://my-json-server-0oe4.onrender.com/products' + id, {
+    fetch('https://my-json-server-0oe4.onrender.com/products/' + id, {
       method: 'PUT', // PUT replaces the product with the new data
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(updatedProduct),
