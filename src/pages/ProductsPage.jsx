@@ -98,7 +98,7 @@ function ProductsPage() {
 
 
 
-            <h3>Amout of Revenue</h3>
+            <h3>Amount of Revenue</h3>
             <p>KSh {inventoryValue.toLocaleString()}</p>
           
           </div>
