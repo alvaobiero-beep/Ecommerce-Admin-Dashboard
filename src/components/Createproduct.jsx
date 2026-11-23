@@ -27,7 +27,7 @@ function Createproduct() {
     }
 
     // 4. Send it to the API
-    fetch('http://localhost:3001/products', {
+    fetch(' https://my-json-server-0oe4.onrender.com/products/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newProduct),

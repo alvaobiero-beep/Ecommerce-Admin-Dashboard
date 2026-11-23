@@ -6,7 +6,7 @@ function useProducts() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:3001/products')
+    fetch('  https://my-json-server-0oe4.onrender.com/products/')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Failed to fetch products');
